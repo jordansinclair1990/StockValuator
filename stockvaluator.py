@@ -132,7 +132,11 @@ def userInput():
     
     end_loop = 0
     while end_loop == 0:
-        default_settings_prompt = input('Would you like to run with the default settings? (Y/n)').upper()
+        prompt_start = 'Would you like to run with the default settings? '
+        prompt_mid = '(short-term-forecast-years = 5, long-term-growth-rate = 2%, discount-rate = 11%)'
+        prompt_end = ' (Y/n)'
+        prompt_text = '{}{}{}'.format(prompt_start, prompt_mid, prompt_end)
+        default_settings_prompt = input(prompt_text).upper()
         if (default_settings_prompt == '') or (default_settings_prompt == 'Y'):
             end_loop = 1
             print(grabStockDataAndCalculateDCF(ticker))
